@@ -1,0 +1,18 @@
+﻿@page "/"
+
+@using opc_ua_test.Services
+
+@inject OpcUaService OpcUaService 
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<button @onclick="async () => TestOpcClient()">Test OPC Client</button>
+
+@{
+    async void TestOpcClient()
+    {
+        await OpcUaService.InitialClient("192.168.1.221");
+    }
+}
